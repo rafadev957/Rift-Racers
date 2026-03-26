@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vhc5ygxr66ux"]
+
+[ext_resource type="Texture2D" uid="uid://hl8rd42toqin" path="res://Assets/Images/test track.jpeg" id="1_fv5kj"]
+[ext_resource type="PackedScene" uid="uid://bldgtkr4mtdwg" path="res://Scenes/Car/Car.tscn" id="2_okhpi"]
+
+[node name="Track" type="Node" unique_id=1252135431]
+
+[node name="Track" type="Sprite2D" parent="." unique_id=1408406723]
+position = Vector2(581.00006, 320.00003)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_fv5kj")
+
+[node name="Car" parent="." unique_id=40450564 instance=ExtResource("2_okhpi")]
+position = Vector2(623, 511)
