@@ -1,0 +1,18 @@
+# Godot 4+
+.godot/
+.import/
+
+# Godot 3
+.import/
+.export/
+
+# Builds
+build/
+export/
+
+# Mono / C#
+.mono/
+.vs/
+
+# macOS
+.DS_Store

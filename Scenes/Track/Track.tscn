@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bscft276evqbw"]
+
+[ext_resource type="Script" uid="uid://7at5etm5g4j5" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
+[ext_resource type="Texture2D" uid="uid://y8hkki1xfqn6" path="res://Assets/Images/Monza.png" id="1_fv5kj"]
+[ext_resource type="Texture2D" uid="uid://2msta3ane5h5" path="res://Assets/Images/WaterBg.png" id="1_okhpi"]
+[ext_resource type="PackedScene" uid="uid://0m7807leqq28" path="res://Scenes/Car/Car.tscn" id="3_0ld5s"]
+
+[sub_resource type="Curve2D" id="Curve2D_0do6f"]
+_data = {
+"points": PackedVector2Array(-195.85938, 7.558214, 195.85938, -7.558214, 439, 63, 5.528925, -50.41611, -5.528925, 50.41611, 415, 236, -74.895454, -1.693388, 74.895454, 1.693388, 574, 355, -61.600002, -12.650001, 61.600002, 12.650001, 939, 277, 1.0999999, -62.700005, -1.0999999, 62.700005, 1073, 553, 109.45, 12.1, -109.45, -12.1, 651, 598, 44.55, 2.2, -44.55, -2.2, 479, 540, 84.7, 3.3000011, -84.7, -3.3000011, 286, 590, 13.200001, 46.2, -13.200001, -46.2, 100, 495, -6.6000004, 78.65, 6.6000004, -78.65, 82, 294, -42.9, 37.95, 42.9, -37.95, 155, 82, -127.600006, -1.6500001, 127.600006, 1.6500001, 439, 63)
+}
+point_count = 12
+
+[node name="Track" type="Node" unique_id=1249913960]
+script = ExtResource("1_0do6f")
+
+[node name="Baackground" type="Sprite2D" parent="." unique_id=1800231164]
+position = Vector2(589, 322)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_okhpi")
+
+[node name="TrackImage" type="Sprite2D" parent="." unique_id=691186095]
+position = Vector2(576.99994, 322.5)
+scale = Vector2(0.81857145, 0.6437126)
+texture = ExtResource("1_fv5kj")
+
+[node name="Car" parent="." unique_id=2083119318 instance=ExtResource("3_0ld5s")]
+position = Vector2(179, 52)
+
+[node name="TrackCollision" type="Area2D" parent="." unique_id=762634026]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TrackCollision" unique_id=1436749607]
+polygon = PackedVector2Array(186, 107, 137, 304, 155, 494, 334, 532, 416, 471, 462, 457, 502, 463, 594, 536, 990, 524, 912, 321, 464, 412, 421, 394, 399, 362, 410, 327, 366, 319, 327, 310, 302, 278, 309, 238, 419, 104)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TrackCollision" unique_id=333685530]
+polygon = PackedVector2Array(95, 13, 72, 38, 49, 125, 21, 233, 8, 341, 20, 469, 49, 576, 202, 613, 370, 643, 467, 577, 543, 642, 1106, 621, 1147, 584, 1002, 220, 929, 212, 546, 288, 524, 252, 475, 232, 600, 62, 596, 25, 560, 6, 99, 7, 113, -84, 1253, -69, 1257, 706, -69, 713, -25, 112, 83, -84)
+
+[node name="TrackPath" type="Path2D" parent="." unique_id=405672705]
+position = Vector2(-13, -9)
+curve = SubResource("Curve2D_0do6f")
+
+[connection signal="area_entered" from="TrackCollision" to="." method="_on_track_collision_area_entered"]
