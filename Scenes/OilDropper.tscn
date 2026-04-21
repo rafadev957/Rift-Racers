@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cl6nrlyvp6tfg"]
+
+[ext_resource type="Script" uid="uid://c17wfc1sxub1d" path="res://Scenes/OilDropper.gd" id="1_jn8no"]
+[ext_resource type="Texture2D" uid="uid://blv5vu5ryjp8t" path="res://Assets/Images/Dot.png" id="2_pe4jl"]
+
+[node name="OilDropper" type="PathFollow2D" unique_id=4092910]
+script = ExtResource("1_jn8no")
+
+[node name="DebugDot" type="Sprite2D" parent="." unique_id=2036518459]
+modulate = Color(0.23782986, 0.89103055, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_pe4jl")
+
+[node name="DropTimer" type="Timer" parent="." unique_id=1883512341]
+one_shot = true
+
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
